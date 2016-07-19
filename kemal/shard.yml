@@ -1,0 +1,7 @@
+name: kemal
+version: 0.1.0
+
+dependencies:
+  kemal:
+    git: "https://github.com/sdogruyol/kemal.git"
+    branch: "master"

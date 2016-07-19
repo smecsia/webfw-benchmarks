@@ -1,0 +1,10 @@
+{
+  "ImportPath": "github.com/aandryashin/ggr",
+  "GoVersion": "go1.6",
+  "GodepVersion": "v74",
+  "Deps": [
+    {
+      "ImportPath": "github.com/zenazn/goji"
+    }
+  ]
+}

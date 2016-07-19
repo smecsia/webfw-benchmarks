@@ -1,0 +1,10 @@
+.gradle
+build
+.idea
+out
+*.iml
+*.ipr
+*.iws
+vendor
+Godeps/pkg
+Godeps/src
