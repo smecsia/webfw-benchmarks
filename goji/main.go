@@ -1,16 +1,21 @@
 package main
 
 import (
-	"io"
+	"fmt"
 	"net/http"
-	"github.com/zenazn/goji"
+	"goji.io"
+	"goji.io/pat"
+	"golang.org/x/net/context"
 )
 
-func main() {
-	goji.Get("/", Root)
-	goji.Serve()
+
+func hello(ctx context.Context, w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello, World!")
 }
 
-func Root(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello,World!")
+func main() {
+	mux := goji.NewMux()
+	mux.HandleFuncC(pat.Get("/hello"), hello)
+
+	http.ListenAndServe("localhost:8000", mux)
 }

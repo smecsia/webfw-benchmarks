@@ -7,8 +7,8 @@
 	],
 	"Deps": [
 		{
-			"ImportPath": "github.com/goji/goji",
-			"Rev": "bc2e9e7dc2769805d1b6ce4dc48ec23a03ae82ec"
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "0a192a193177452756c362c20087ddafcf6829c4"
 		}
 	]
 }
