@@ -10,7 +10,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", HelloHandler)
 	// Bind to a port and pass our router in
-	log.Fatal(http.ListenAndServe(":8000", r))
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
 
 func HelloHandler(w http.ResponseWriter, r *http.Request) {

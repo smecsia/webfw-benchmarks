@@ -1,0 +1,29 @@
+group 'me.smecsia.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'com.bmuschko.tomcat'
+
+sourceCompatibility = 1.5
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.5'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def tomcatVersion = '7.0.59'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+    providedCompile 'javax.servlet:servlet-api:3.0-alpha-1'
+}

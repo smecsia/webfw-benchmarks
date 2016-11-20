@@ -8,7 +8,7 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/gorilla/mux",
-			"Rev": "0a192a193177452756c362c20087ddafcf6829c4"
+			"Rev": "757bef944d0f21880861c2dd9c871ca543023cba"
 		}
 	]
 }
