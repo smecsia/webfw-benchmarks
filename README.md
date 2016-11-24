@@ -32,9 +32,9 @@ I used tiny benchmark tool written on Crystal [Cryload](https://github.com/sdogr
 ### Totals:
 | Framework             |  RPS  |  Max    |  Min   |  Avg  |
 | :-------------------- | ----: | ------: | -----: | ----: |
-| Rapidoid (Java)       | 56879 | 1.661   | 0.014  | 0.018 |
 | Undertow (Java)       | 49038 | 1.574   | 0.017  | 0.020 |
 | java.nio (Java)       | 48277 | 6.945   | 0.014  | 0.021 |
+| Rapidoid (Java)       | 47044 | 1.781   | 0.016  | 0.021 |
 | Kemal    (Crystal)    | 41561 | 1.506   | 0.018  | 0.024 |
 | java.nio (Avian)      | 29657 | 3.260   | 0.019  | 0.034 |
 | Gin      (Go)         | 28390 | 2.957   | 0.026  | 0.035 |
@@ -75,7 +75,7 @@ Total time taken: 5.0792107999998075 seconds
 ### (Java) rapidoid
 
 ```
-$ ./cryload -s http://localhost:8080 -n 100000
+$ ./cryload -s http://localhost:8080/plaintext -n 100000
 Preparing to make it CRY for 100000 requests!
 Total request made: 10000
 Total request made: 20000
@@ -90,16 +90,16 @@ Completed All Requests!
 -------------------------------
 
 Time taken per request:
-Min: 0.014 ms
-Max: 1.661 ms
-Average: 0.018 ms
+Min: 0.016 ms
+Max: 1.781 ms
+Average: 0.021 ms
 
 Requests Statistics:
-Request p/s: 56879.039158315696
+Request p/s: 47044.444533303096
 2xx requests 0
 Non 2xx requests 100000
 Total request made: 100000
-Total time taken: 1.7581169000000598 seconds
+Total time taken: 2.1256495000001392 seconds
 ```
 
 ### (Java) plain java.nio.channels 
