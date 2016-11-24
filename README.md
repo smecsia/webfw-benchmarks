@@ -14,7 +14,7 @@ Ubuntu 16.04 Linux 4.4.0-47-generic
 * Crystal 0.19.4
 * Nodejs 7.1.0
 
-
+* Rapidoid 5.2.6
 * Undertow 1.4.4.Final
 * Expressjs 4.14.0
 * Tomcat 7.0.59
@@ -22,6 +22,7 @@ Ubuntu 16.04 Linux 4.4.0-47-generic
 * Kemal [73358](https://github.com/sdogruyol/kemal/commit/733582f7243a415d345bdaefc4e9df16e949c3b2)
 * Gin [bb159](https://github.com/gin-gonic/gin/commit/bb159f9260a262fccbdbd6f37f8575d1e7e6aaa0)
 * Mux [757be](https://github.com/gorilla/mux/commit/757bef944d0f21880861c2dd9c871ca543023cba)
+* Echo [cd253](https://github.com/labstack/echo/commit/cd2530ea098106338b888f4fb66e966efa2fd75e)
 
 ## Benchmarking tool
 I used tiny benchmark tool written on Crystal [Cryload](https://github.com/sdogruyol/cryload)
@@ -31,14 +32,75 @@ I used tiny benchmark tool written on Crystal [Cryload](https://github.com/sdogr
 ### Totals:
 | Framework             |  RPS  |  Max    |  Min   |  Avg  |
 | :-------------------- | ----: | ------: | -----: | ----: |
+| Rapidoid (Java)       | 56879 | 1.661   | 0.014  | 0.018 |
 | Undertow (Java)       | 49038 | 1.574   | 0.017  | 0.020 |
 | java.nio (Java)       | 48277 | 6.945   | 0.014  | 0.021 |
 | Kemal    (Crystal)    | 41561 | 1.506   | 0.018  | 0.024 |
 | java.nio (Avian)      | 29657 | 3.260   | 0.019  | 0.034 |
 | Gin      (Go)         | 28390 | 2.957   | 0.026  | 0.035 |
 | Mux      (Go)         | 26588 | 2.999   | 0.028  | 0.038 |
-| Servlet  (Java)       | 16869 | 8.546   | 0.059  | 0.049 |
+| Echo     (Go)         | 19688 | 6.558   | 0.027  | 0.051 |
+| Servlet  (Java)       | 16869 | 8.546   | 0.059  | 0.059 |
 | Expressjs (Javascript)| 12030 | 2.742   | 0.068  | 0.083 |
+
+### (Go) echo
+```
+$ ./cryload -s http://localhost:8080 -n 100000
+Preparing to make it CRY for 100000 requests!
+Total request made: 10000
+Total request made: 20000
+Total request made: 30000
+Total request made: 40000
+Total request made: 50000
+Total request made: 60000
+Total request made: 70000
+Total request made: 80000
+Total request made: 90000
+Completed All Requests!
+-------------------------------
+
+Time taken per request:
+Min: 0.027 ms
+Max: 6.558 ms
+Average: 0.051 ms
+
+Requests Statistics:
+Request p/s: 19688.098001367413
+2xx requests 0
+Non 2xx requests 100000
+Total request made: 100000
+Total time taken: 5.0792107999998075 seconds
+```
+
+### (Java) rapidoid
+
+```
+$ ./cryload -s http://localhost:8080 -n 100000
+Preparing to make it CRY for 100000 requests!
+Total request made: 10000
+Total request made: 20000
+Total request made: 30000
+Total request made: 40000
+Total request made: 50000
+Total request made: 60000
+Total request made: 70000
+Total request made: 80000
+Total request made: 90000
+Completed All Requests!
+-------------------------------
+
+Time taken per request:
+Min: 0.014 ms
+Max: 1.661 ms
+Average: 0.018 ms
+
+Requests Statistics:
+Request p/s: 56879.039158315696
+2xx requests 0
+Non 2xx requests 100000
+Total request made: 100000
+Total time taken: 1.7581169000000598 seconds
+```
 
 ### (Java) plain java.nio.channels 
 
